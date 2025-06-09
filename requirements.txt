@@ -1,1 +1,5 @@
 ultralytics
+ipykernel
+jupyter
+roboflow
+gdown #to wget Google Drive files

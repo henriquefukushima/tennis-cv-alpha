@@ -1,8 +1,9 @@
 from ultralytics import YOLO
 
-model = YOLO('models/yolov8x') # Load a pretrained YOLOv8 model
+#model = YOLO('models/yolov5n_last.pt') # Load a pretrained YOLOv8 model
+model = YOLO('models/yolov8x.pt')  # Load a pretrained YOLOv8 model
 
-result = model.predict(
+result = model.track(
     'input_videos/input_video.mp4', 
     save=True,  # Save the output video with detections
     show=True,  # Display the output video with detections

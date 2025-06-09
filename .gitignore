@@ -1,4 +1,7 @@
+.env
 venv
 input_videos
 models
 runs
+data
+tennis-ball-detection-6
