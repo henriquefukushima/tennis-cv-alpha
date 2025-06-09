@@ -1,6 +1,7 @@
 from ultralytics import YOLO
 import cv2
 import pickle 
+import pandas as pd
 
 class BallTracker:
     def __init__(self, model_path):
@@ -33,6 +34,18 @@ class BallTracker:
                 pickle.dump(ball_detections, f)
 
         return ball_detections
+    
+    def interpolate_ball_detections(self, ball_detections):
+        ball_positions = [x.get(1, []) for x in ball_detections]
+        df_ball_positions = pd.DataFrame(ball_positions, columns=['x1', 'y1', 'x2', 'y2'])
+        #interpolate missing values
+        df_ball_positions = df_ball_positions.interpolate()
+        df_ball_positions = df_ball_positions.bfill()
+
+        #convert back to list of dicts
+        ball_positions = [{1:x} for x in df_ball_positions.to_numpy().tolist()]
+
+        return ball_positions
     
     def draw_bboxes(self, video_frames, ball_detections):
 
