@@ -3,6 +3,7 @@ venv
 input_videos
 output_videos
 models
+tracker_stubs
 runs
 data
 tennis-ball-detection-6
