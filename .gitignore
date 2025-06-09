@@ -1,7 +1,9 @@
 .env
 venv
 input_videos
+output_videos
 models
 runs
 data
 tennis-ball-detection-6
+__pycache__
